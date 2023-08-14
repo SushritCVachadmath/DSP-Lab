@@ -1,0 +1,16 @@
+a=1+mod(156,3);
+pi=3.14;
+Fs=1200;
+t=0:(1/Fs):5;
+z='Track001.wav';
+[y10,Fs]=audioread(z);
+subplot(2,2,1);
+plot(y10);
+z1=readmatrix('ConvFile1');
+subplot(2,2,2);
+plot(z1);
+z2=conv(y10,z1);
+subplot(2,2,3);
+plot(z2);
+sound(z2,Fs);
+audiowrite('problem7.wav',z2,Fs); 
